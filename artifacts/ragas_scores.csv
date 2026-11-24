@@ -1,0 +1,199 @@
+question,answer,reference,reference_count,reference_token_f1,judge_model,faithfulness,faithfulness_error,faithfulness_model,context_precision,context_precision_error,context_precision_model,context_recall,context_recall_error,context_recall_model,answer_relevancy,answer_relevancy_error,answer_relevancy_model
+which multilingual approaches do they compare with?,"The evidence provided compares the proposed approach with several multilingual approaches in the zero-shot translation scenario. Specifically, the approaches are compared with:
+
+1. **Pivoting**: This method translates the source language to an intermediate language (pivot) and then from the pivot language to the target language, which can be inefficient and is considered a strong baseline.
+2. **Multilingual NMT (MNMT)**: This method leverages a single model to translate between multiple source and target languages.
+3. **Cross-lingual transfer without pretraining**: This method does not use pretraining, which can result in weaker performance compared to methods that do use pretraining.
+
+The proposed approach is shown to consistently outperform these methods across various languages and datasets. The evidence indicates that the proposed method is more efficient and performs better than pivoting and outperforms multilingual NMT and cross-lingual transfer without pretraining. Additionally, the proposed approach shows consistent performance or improvement over the supervised translation direction using the proposed method.",BIBREF19 BIBREF20,2,0.037267080745341616,qwen2.5:7b,1.0,,qwen2.5:7b,0.0,,qwen2.5:7b,0.0,,qwen2.5:7b,0.8697963501429754,,qwen2.5:7b
+what are the pivot-based baselines?,"Based on the evidence provided, pivot-based baselines are a strategy to obtain a source-to-target model by introducing a pivot language. They are further divided into two methods: pivoting and pivot-synthetic. The pivoting method involves translating from the source language to the pivot language, and then translating from the pivot language to the target language [1]. This method is the strongest baseline, as it has a significant advantage over other two baselines. However, it suffers from computational and parameter challenges, as the number of source languages can grow quadratically, and it is prone to error propagation [2].
+
+The pivot-based method faces limitations, including computational expense and parameter demand. To address these issues, various solutions have been proposed such as using traditional transfer learning, pivot-based methods, and multilingual NMT. In terms of efficiency, pivot-based methods are computationally intensive due to the need to translate through a pivot language [3]. 
+
+Regarding the performance of these baselines, pivot-based methods have shown to perform better than traditional transfer learning, multilingual NMT, and cross-lingual transfer without pretraining, especially in the zero-shot scenario [1, 4, 5]. Our approaches, which include methods like Masked Language Model (MLM) and Binary Relation Language Model (BRLM-SA), perform significantly better than pivoting in the zero-shot scenario and have a more efficient process compared to pivoting. Our approaches also outperform transfer methods that do not use pretraining, indicating their effectiveness in scenarios where pretraining is beneficial [5].
+
+In conclusion, pivot-based baselines are a common strategy for cross-lingual transfer, but they are computationally expensive and can suffer from error propagation. Our methods show that they can be improved upon, and they consistently outperform the traditional pivot-based method in the zero-shot scenario [1, 5].",pivoting pivoting$_{\rm m}$,2,0.08333333333333334,qwen2.5:7b,1.0,,qwen2.5:7b,0.99999999995,,qwen2.5:7b,1.0,,qwen2.5:7b,0.7953256110100789,,qwen2.5:7b
+which datasets did they experiment with?,"Based on the evidence provided, the datasets they experimented with are:
+
+[2] Europarl BIBREF31 and [3] MultiUN BIBREF32. These two datasets were used to evaluate the cross-lingual pre-training based transfer approach on zero-shot translation tasks.",Europarl MultiUN,2,0.1904761904761905,qwen2.5:7b,0.5,,qwen2.5:7b,0.5833333333041666,,qwen2.5:7b,1.0,,qwen2.5:7b,0.7544000278066539,,qwen2.5:7b
+what language pairs are explored?,"Based on the provided evidence, the language pairs explored in the research include:
+
+- French-English-Spanish (Fr-En-Es)
+- German-English-French (De-En-Fr)
+- Romanian-English-German (Ro-En-De)
+- Arabic-English-Spanish (Ar-En-Es)
+
+These pairs are mentioned in evidence [5], where the statistics of Europarl and MultiUN corpora are summarized. Additionally, evidence [4] mentions the visualization of cosine similarity between hidden states, which likely includes these language pairs as part of the investigation into cross-lingual pre-training methods. 
+
+The evidence does not provide information about any other language pairs explored in the research.","De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",2,0.35820895522388063,qwen2.5:7b,0.8,,qwen2.5:7b,0.4499999999775,,qwen2.5:7b,0.3333333333333333,,qwen2.5:7b,0.8316102110127249,,qwen2.5:7b
+what ner models were evaluated?,"The research evaluated three ner models: Stanford NER, spaCy 2.0, and a recurrent model similar to the one described in BIBREF13 and BIBREF14. These models were trained and evaluated on the datasets provided, which included a silver-standard corpus for training named entity recognition models and a gold-standard corpus for testing.",Stanford NER spaCy 2.0 recurrent model with a CRF top layer,1,0.24615384615384617,qwen2.5:7b,1.0,,qwen2.5:7b,0.9999999999,,qwen2.5:7b,1.0,,qwen2.5:7b,0.6707228696234239,,qwen2.5:7b
+what is the source of the news sentences?,"Based on the evidence provided, the news sentences are sourced from Wikipedia and manually annotated news texts. 
+
+[1] and [2] indicate that the news sentences are derived from annotated news texts (e.g., sentences from political, sports, local and world news) and are manually annotated. 
+
+While the evidence does not explicitly state that the source of the news sentences is Wikipedia, the mention of a ""named entity corpus automatically generated and annotated from Wikipedia"" in [2] and the mention of using Wikipedia articles in [3] suggest that the news sentences are likely sourced from Wikipedia. The process described in [3] for generating the corpus also implies that Wikipedia is one of the sources of the news sentences. 
+
+Therefore, we can conclude that the news sentences are sourced from Wikipedia and manually annotated news texts.",ilur.am,2,0.0821917808219178,qwen2.5:7b,0.25,,qwen2.5:7b,0.9999999999,,qwen2.5:7b,1.0,,qwen2.5:7b,0.9542218839618711,,qwen2.5:7b
+did they use a crowdsourcing platform for manual annotations?,"Based on the provided evidence, we cannot determine if they used a crowdsourcing platform for manual annotations. The evidence does not mention any use of crowdsourcing for manual annotation. Instead, it describes the creation of a manually annotated gold-standard corpus for the Armenian language, as well as the use of a silver-standard corpus generated from Wikipedia article texts. The evidence focuses on the creation of training and evaluation datasets, but does not specify how the annotations were obtained.",no,1,0.0,qwen2.5:7b,0.6666666666666666,,qwen2.5:7b,0.49999999995,,qwen2.5:7b,0.0,,qwen2.5:7b,0.0,,qwen2.5:7b
+what are the topics pulled from Reddit?,"Based on the evidence provided, we can determine that Reddit posts cover a diverse set of topics, including but not limited to climate change, abortion, world news, relationship advice, and the future of artificial intelligence. The evidence suggests that Reddit captures discussion and debate across various domains and topics, making it a valuable resource for studying domain-independent linguistic features, including those related to dogmatism.
+
+The evidence also indicates that Reddit posts from different subreddits, which are sub-communities oriented around specific interests or topics, can be used to study the dogmatism of these sub-communities. This is further supported by evidence that the model, trained on annotated posts, can be used to analyze millions of other Reddit posts to answer research questions about the diverse set of topics colored by dogmatic language.
+
+Additionally, the evidence mentions that the model finds some evidence for dogmatism as a deeper personality trait and that in conversation, dogmatism tends to influence the views of the conversational partner, forming a vicious cycle. This supports the idea that dogmatism spans across various topics and can influence discussion on multiple domains.
+
+In summary, the evidence suggests that the topics pulled from Reddit include a wide range of subjects from different domains, and these topics are characterized by dogmatism.","politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage.",2,0.13445378151260504,qwen2.5:7b,1.0,,qwen2.5:7b,0.249999999975,,qwen2.5:7b,1.0,,qwen2.5:7b,0.778544078816851,,qwen2.5:7b
+What predictive model do they build?,"Based on the provided evidence, the predictive model described is trained to classify dogmatic posts from Reddit. This can be inferred from evidence [3] and [4]. Evidence [3] specifically mentions training a predictive model to classify dogmatic posts from Reddit, and evidence [4] discusses the statistical model of dogmatism applied to Reddit comments. 
+
+Evidence [1] and [2] also support this by mentioning the use of annotated Reddit comments for building and validating a predictive model to predict dogmatism. Evidence [5] describes a prediction task but does not specify the model, only mentioning the use of strategies from Section 3 in a broader context.
+
+Therefore, the research primarily focuses on a predictive model built for Reddit comments to predict dogmatism.",logistic regression models,2,0.0958904109589041,qwen2.5:7b,0.3333333333333333,,qwen2.5:7b,0.49999999995,,qwen2.5:7b,0.0,,qwen2.5:7b,0.5877076078077607,,qwen2.5:7b
+What crowdsourcing platform is used?,"Based on the provided evidence, we cannot definitively determine which specific crowdsourcing platform is used. The evidence discusses the use of crowdsourcing for obtaining labeled data but does not specify the platform or platforms utilized. The evidence mentions Amazon Mechanical Turk [5] as a platform that has been used for obtaining labeled results for several NLP tasks, but it does not indicate that this is the platform used in the specific research context described in the provided evidence.
+
+[5] Snow, J., Dyer, E., Bush, A., & McGregor, G. (2008). Cheap and fast or cheap but slow? An empirical comparison of human and machine translation. In *Annual Meeting of the Association for Computational Linguistics* (pp. 163-170).","They did not use any platform, instead they hired undergraduate students to do the annotation.",1,0.061538461538461535,qwen2.5:7b,0.75,,qwen2.5:7b,0.0,,qwen2.5:7b,0.0,,qwen2.5:7b,0.0,,qwen2.5:7b
+How do they match words before reordering them?,"Based on the provided evidence, the process of matching words before reordering them involves the use of a pre-ordering system, such as the CFILT-preorder system, which is designed for reordering English sentences to match Indian language word order. This system includes generic rules that apply to all Indian languages and Hindi-tuned rules which are improved by incorporating improvements found through an error analysis of English-Hindi reordering.
+
+For instance, a specific reordering rule swaps the position of a noun phrase followed by a transitive verb with the transitive verb. This is demonstrated in [2] with the example of the sentence ""Anurag will meet Thakur."" According to this rule, the sentence would be reordered to ""Anurag Thakur will meet.""
+
+The evidence also suggests that pre-ordering the source language sentences to match the target language word order has been effective in addressing word-order divergence, as evidenced by the success in Phrase-Based SMT and multilingual NMT in low-resource settings, as described in [1] and [4].
+
+However, it is important to note that the effectiveness of pre-ordering can vary depending on the specific language pairs and the type of NMT system being used. While it has been shown to improve translation accuracy for unseen source-target language pairs in low-resource settings, the effectiveness can differ between Phrase-Based SMT and Neural Machine Translation (NMT) systems, as highlighted in [4] and [21].
+
+In summary, the process of matching words before reordering them involves the application of specific reordering rules, which can be adjusted according to the specific requirements of the target language. This is a crucial step for ensuring that the structure of the source language is accurately represented in the target language, especially in situations where there is a divergence in word order.",CFILT-preorder system,1,0.019933554817275746,qwen2.5:7b,,qwen2.5:7b attempt 1: IncompleteOutputException: The output is incomplete due to a max_tokens length limit. | qwen2.5:7b attempt 2: IncompleteOutputException: The output is incomplete due to a max_tokens length limit.,,0.9999999999,,qwen2.5:7b,1.0,,qwen2.5:7b,0.8650823689113091,,qwen2.5:7b
+On how many language pairs do they show that preordering assisting language sentences helps translation quality?,"Based on the evidence provided, the research clearly indicates that preordering assisting language sentences to match the word order of the source language significantly improves translation quality, particularly in scenarios where there is no parallel corpus between the source and target language. 
+
+[1] and [3] both mention experiments showing that bridging the word order gap through preordering leads to significant improvement in translation quality, albeit in an extremely low-resource setting [3]. 
+
+[2] supports this by stating that handling word-order divergence is crucial for the success of multilingual NMT, particularly in an extremely low-resource setting.
+
+[4] does not directly address the specific research question about the number of language pairs, but it shows a method for preordering sentences in an Indian language context.
+
+[5] reiterates the hypothesis but does not provide experimental evidence.
+
+Therefore, based on the evidence provided, the research shows that preordering assisting language sentences to match the word order of the source language can improve translation quality. However, the evidence does not provide a specific number of language pairs where this method was tested and found to improve translation quality. 
+
+Thus, I cannot determine on how many language pairs this method was tested and showed an improvement in translation quality based on the given information.",5,2,0.0606060606060606,qwen2.5:7b,0.5,,qwen2.5:7b,0.9999999999,,qwen2.5:7b,0.0,,qwen2.5:7b,0.0,,qwen2.5:7b
+Which dataset(s) do they experiment with?,"Based on the provided evidence, they experiment with the following datasets:
+
+[3] In this context, they experiment with the translation task between English and Hindi, where English serves as the assisting source language, and Hindi is the target language. The primary source languages are Bengali, Gujarati, Marathi, Malayalam, and Tamil, and the child tasks are the translation from these languages to Hindi. This experiment involves multiple datasets as there are five primary source languages (Bengali, Gujarati, Marathi, Malayalam, and Tamil) each paired with Hindi.",IITB English-Hindi parallel corpus BIBREF22 ILCI English-Hindi parallel corpus,2,0.0851063829787234,qwen2.5:7b,0.75,,qwen2.5:7b,0.0,,qwen2.5:7b,0.0,,qwen2.5:7b,0.672058424776779,,qwen2.5:7b
+Which information about text structure is included in the corpus?,"Based on the provided evidence, the corpus includes information on text structure, typography, and images. This is explicitly stated in multiple sources:
+
+[2] states: ""As a novel contribution, it contains information on text structure, typography, and images, which can be exploited as part of machine learning approaches to readability assessment and text simplification.""
+
+[3] reiterates: ""These features have been shown to be indicative of simple vs. complex texts both theoretically and, using the corpus described in this paper, empirically.""
+
+[5] emphasizes: ""The paper at hand introduces a corpus developed for use in automatic readability assessment and automatic text simplification of German. The focus of this publication is on representing information that is valuable for these tasks but that hitherto has largely been ignored in machine learning approaches centering around simplified language, specifically, text structure (e.g., paragraphs, lines), typography (e.g., font type, font style), and image (content, position, and dimensions) information.""
+
+Therefore, the answer to the research question is that the corpus includes information on text structure, typography, and images.","paragraphs lines Information on physical page segmentation (for PDFs only), paragraph segmentation, and line segmentation",2,0.06451612903225806,qwen2.5:7b,1.0,,qwen2.5:7b,0.699999999965,,qwen2.5:7b,0.8,,qwen2.5:7b,0.8484858313609088,,qwen2.5:7b
+Which information about typography is included in the corpus?,"The corpus includes information on text structure, typography, and images. This is evidenced by the following sources:
+
+[1] The corpus newly contains information on text structure, typography, and images.
+
+[2] The corpus is compiled from web sources and consists of approximately 211,000 sentences, and it contains information on text structure, typography, and images, which can be exploited as part of machine learning approaches to readability assessment and text simplification.
+
+[4] The corpus presented in this paper additionally contains information on text structure, typography, and images. These features have been shown to be indicative of simple vs. complex texts both theoretically and, using the corpus described in this paper, empirically.
+
+[5] The paper at hand introduces a corpus developed for use in automatic readability assessment and automatic text simplification of German. The focus of this publication is on representing information that is valuable for these tasks but that hitherto has largely been ignored in machine learning approaches centering around simplified language, specifically, text structure, typography, and image information.
+
+Therefore, the research question is fully supported by the provided evidence.","font type font style Information on the font type and font style (e.g., italics, bold print) of a token and its position on the physical page",2,0.15450643776824036,qwen2.5:7b,,qwen2.5:7b attempt 1: IncompleteOutputException: The output is incomplete due to a max_tokens length limit. | qwen2.5:7b attempt 2: IncompleteOutputException: The output is incomplete due to a max_tokens length limit.,,0.8874999999778125,,qwen2.5:7b,1.0,,qwen2.5:7b,0.7857694906354372,,qwen2.5:7b
+On which benchmarks they achieve the state of the art?,"Based on the provided evidence, our system achieves state-of-the-art results on both single-relation and multi-relation KBQA tasks. This is evident from the first piece of evidence which states, ""Our main contributions include: (i) An improved relation detection model by hierarchical matching between questions and relations with residual learning; (ii) We demonstrate that the improved relation detector enables our simple KBQA system to achieve state-of-the-art results on both single-relation and multi-relation KBQA tasks.""
+
+Additionally, evidence [4] provides further support by indicating that the combination of our improved relation detector (HR-BiLSTM) with our KBQA system results in a new state-of-the-art result on SimpleQuestions and a result comparable to the state-of-the-art on WebQSP.",SimpleQuestions WebQSP,2,0.031007751937984496,qwen2.5:7b,1.0,,qwen2.5:7b,0.5333333333155555,,qwen2.5:7b,1.0,,qwen2.5:7b,0.6807331489448322,,qwen2.5:7b
+What they use in their propsoed framework?,"Based on the provided evidence, the proposed framework seems to incorporate a combination of multiple relation detectors for relation detection tasks. Specifically, reference [1] indicates that the authors used the top-3 relation detectors from Section ""Relation Detection Results"" and achieved a significant performance boost on both SimpleQuestions and WebQSP, resulting in new state-of-the-art performance on SimpleQuestions and a result comparable to the state-of-the-art on WebQSP. 
+
+However, the evidence does not provide specific details on the proposed framework's structure or components. It only mentions that the framework uses relation detectors, but does not specify the exact components or steps involved in the framework. Therefore, while we can confirm that relation detectors are used, we cannot determine the exact details of the proposed framework from the given evidence.",break the relation names into word sequences relation-level and word-level relation representations bidirectional LSTMs (BiLSTMs) residual learning method,2,0.15384615384615383,qwen2.5:7b,0.625,,qwen2.5:7b,0.0,,qwen2.5:7b,0.0,,qwen2.5:7b,0.0,,qwen2.5:7b
+What does KBQA abbreviate for,"KBQA abbreviates for Knowledge Base Question Answering. According to the evidence, KBQA systems obtain information from Knowledge Base (KB) tuples to answer questions. The evidence mentions Knowledge Base Question Answering systems that use entity linking and relation detection to parse questions and retrieve answers from a Knowledge Base. Therefore, the abbreviation is derived from the process and purpose of these systems.",Knowledge Base Question Answering,1,0.12307692307692307,qwen2.5:7b,1.0,,qwen2.5:7b,0.699999999965,,qwen2.5:7b,1.0,,qwen2.5:7b,0.8433273026742292,,qwen2.5:7b
+What is te core component for KBQA?,"Based on the evidence provided, the core component for KBQA is the relation detection model. This is supported by several points in the evidence:
+
+[4] mentions that KBQA systems answer questions by obtaining information from KB tuples, and these systems typically generate a KB query. This query is formed by identifying the KB relation(s) a question refers to, highlighting the importance of relation detection.
+
+Additionally, the evidence in [3] and [5] emphasizes the role of relation detection. In [3], relation detection is part of a new relation detection task created from the WebQSP dataset, indicating its critical role in identifying the KB relation(s) associated with a question. 
+
+In [5], there is an explicit mention of how relation detection plays a key role in the KBQA process, involving re-ranking entity candidates based on their connection to the detected relations, and then finding the core relation (chains) for each topic entity. The evidence further supports the importance of this process in resolving ambiguities and improving the accuracy of the KBQA system.
+
+Therefore, relation detection is a core component for KBQA, as evidenced by the necessity of identifying KB relations to generate the necessary KB query for answer retrieval and the integral role of relation detection in the KBQA process.",answer questions by obtaining information from KB tuples,2,0.07339449541284404,qwen2.5:7b,0.9090909090909091,,qwen2.5:7b,0.249999999975,,qwen2.5:7b,1.0,,qwen2.5:7b,0.8666578085380067,,qwen2.5:7b
+What experiments are proposed to test that upper layers produce context-specific embeddings?,"Based on the provided evidence, several experiments can be proposed to test that upper layers produce context-specific embeddings. Here are some experiments that can be designed:
+
+1. **Experiment 1: Layer-wise Analysis of Context-Specificity**
+   - **Objective:** Investigate the degree of context-specificity in different layers of ELMo, BERT, and GPT-2.
+   - **Procedure:** Analyze the cosine similarity between the contextualized representations of the same word in different contexts across all layers of the models. Compute the average cosine similarity within each layer and compare it to the average cosine similarity across all layers.
+   - **Result Interpretation:** If the cosine similarity is consistently lower in the upper layers compared to the lower layers, this supports the hypothesis that upper layers produce more context-specific representations.
+
+2. **Experiment 2: Representation Similarity Across Layers**
+   - **Objective:** Compare the similarity of word representations across different layers.
+   - **Procedure:** Measure the cosine similarity of representations between words in the same context across all layers. Compare the average cosine similarity within each layer and compare it to the average cosine similarity across all layers.
+   - **Result Interpretation:** If the cosine similarity is lower within each layer compared to across all layers, this suggests that representations become less similar as the layer position increases, indicating more context-specific representations in higher layers.
+
+3. **Experiment 3: Static Embedding Replacement Analysis**
+   - **Objective:** Evaluate the effectiveness of static embeddings compared to contextualized embeddings.
+   - **Procedure:** Replace the static embeddings with static embeddings derived from different layers (e.g., from the first layer to the last layer) of the models and measure the performance on various NLP tasks.
+   - **Result Interpretation:** If the static embeddings derived from higher layers perform better than those from lower layers, this supports the hypothesis that upper layers produce more context-specific representations.
+
+4. **Experiment 4: Anisotropy and Context-Specificity Relationship**
+   - **Objective:** Investigate the relationship between anisotropy and context-specificity.
+   - **Procedure:** Calculate the anisotropy and cosine similarity for representations across different layers. Analyze if there is a correlation between the degree of anisotropy and the degree of context-specificity.
+   - **Result Interpretation:** If there is a positive correlation between anisotropy and context-specificity, this supports the idea that anisotropy is a proxy for context-specificity, and higher layers are more context-specific.
+
+5. **Experiment 5: Effect of Context on Upper Layers**
+   - **Objective:** Evaluate how context influences the representations in upper layers compared to lower layers.
+   - **Procedure:** Measure the cosine similarity of representations for the same word in different contexts within the same layer. Compare these to representations in different layers for the same context.
+   - **Result Interpretation:** If representations in upper layers are more dissimilar to each other within the same layer (indicating more context-specificity) compared to representations in lower layers, this supports the hypothesis.
+
+These experiments align with the findings from the provided evidence, particularly focusing on the higher layers of the models (ELMo, BERT, and GPT-2) producing more context-specific representations compared to lower layers.","They measure self-similarity, intra-sentence similarity and maximum explainable variance of the embeddings in the upper layers.",2,0.15884476534296027,qwen2.5:7b,,qwen2.5:7b attempt 1: IncompleteOutputException: The output is incomplete due to a max_tokens length limit. | qwen2.5:7b attempt 2: IncompleteOutputException: The output is incomplete due to a max_tokens length limit.,,0.8333333332916666,,qwen2.5:7b,1.0,,qwen2.5:7b,0.9352702800851157,,qwen2.5:7b
+How do they calculate a static embedding for each word?,"To determine how static embeddings are calculated for each word, we need to use the provided evidence to deduce the process. Let's analyze the evidence step by step:
+
+1. [1] In this evidence, we see that static embeddings are created by taking the first principal component (PC) of the contextualized representations of a word in a given layer. This suggests a process of dimensionality reduction to create static embeddings.
+
+2. [2] This evidence discusses Skip-gram with negative sampling (SGNS) and GloVe models, which are used for generating static word embeddings. These models implicitly factorize a word-context matrix, which suggests a matrix factorization approach.
+
+3. [3] This evidence provides a measure of how well static embeddings can approximate the contextualized representations of a word by using the Proportion of Variance (MEV), which is calculated for the first principal component. This implies a process of principal component analysis (PCA) to extract the first principal component as a static embedding.
+
+Based on these points, we can infer that static embeddings are calculated using PCA (Principal Component Analysis) where the first principal component is taken from the contextualized representations of a word in a given layer. The process can be summarized as follows:
+
+- Contextualized representations are obtained for a word in a given layer.
+- Principal Component Analysis (PCA) is applied to these contextualized representations.
+- The first principal component is selected to form the static embedding.
+
+So, the answer is that static embeddings are calculated by taking the first principal component of the contextualized representations of a word in a given layer. This approach is consistent with the method described in evidence [1].",They use the first principal component of a word's contextualized representation in a given layer as its static embedding.,2,0.11683848797250858,qwen2.5:7b,1.0,,qwen2.5:7b,0.9999999999,,qwen2.5:7b,1.0,,qwen2.5:7b,0.9863640220231756,,qwen2.5:7b
+What is the performance of BERT on the task?,"Based on the evidence provided, BERT has demonstrated an outstanding performance in the task of Spanish clinical data anonymisation. The evidence suggests that BERT, specifically the BERT-Base Multilingual Cased model with a Fully Connected (FC) layer, performs well on this task. This is evidenced by several points:
+
+1. **Outstanding Performance in NERC-Like Tasks**: [1] states that BERT has shown an outstanding performance in NERC-like tasks, improving the start-of-the-art results for almost every dataset and language.
+
+2. **Comprehensive Evaluation**: [2] indicates that BERT was tested for Spanish clinical data anonymisation using a sequence labelling approach and compared with other methods, suggesting a thorough evaluation.
+
+3. **Robustness**: [3] shows that the BERT-based model is robust to training-data scarcity, as it only loses 7 points of F1-score when trained on a reduced dataset. This robustness is consistent with the results found in the NLP community [4], where BERT has achieved state-of-the-art results on various NLP tasks including text classification and Named Entity Recognition and Classification (NERC).
+
+4. **Comparison with Other Systems**: [5] compares the performance of BERT with other models (domain-dependent and domain-independent) and notes that BERT remains only 0.3 F1-score points behind the best-performing system. This result is consistent with BERT’s performance on other tasks [4], where it has been successful in various NLP-related tasks.
+
+In summary, the evidence supports that BERT performs well on the task of Spanish clinical data anonymisation, showing robust performance in the face of limited training data and competitive with other established NLP models. However, the evaluation in [5] indicates that further improvements or addressing labelling inconsistencies could still yield better results.","F1 scores are: HUBES-PHI: Detection(0.965), Classification relaxed (0.95), Classification strict (0.937) Medoccan: Detection(0.972), Classification (0.967)",2,0.11838006230529594,qwen2.5:7b,1.0,,qwen2.5:7b,0.0,,qwen2.5:7b,0.0,,qwen2.5:7b,0.7556887630771102,,qwen2.5:7b
+What are the other algorithms tested?,"Based on the provided evidence, the other algorithms tested in the experiments are not explicitly mentioned. Evidence [4] indicates that experiments were run with ""other systems and baselines"" to compare them with BERT, but it does not specify which other algorithms were used. Therefore, I cannot determine the specific algorithms tested other than BERT without additional information.",NER model CRF classifier trained with sklearn-crfsuite classifier has been developed that consists of regular-expressions and dictionary look-up,2,0.07692307692307693,qwen2.5:7b,0.3333333333333333,,qwen2.5:7b,0.0,,qwen2.5:7b,0.0,,qwen2.5:7b,0.0,,qwen2.5:7b
+Does BERT reach the best performance among all the algorithms compared?,"Based on the evidence provided, BERT does appear to reach the best performance among the compared algorithms. This can be inferred from the following points:
+
+1. **[1]**: BERT outperforms other systems in terms of F1-score, with a significant margin. The difference in F1-score between BERT and the next best system is 1.9 points. Additionally, BERT's recall is about 5 points higher than the next best system.
+
+2. **[2]**: When the training data is significantly reduced, BERT shows the highest robustness, maintaining its F1-score even when trained on a much smaller dataset (230 instances instead of 21,371). This robustness is a strong indicator of BERT's performance.
+
+3. **[3]**: In the detection scenario, BERT achieves a higher recall (0.979) compared to the rest of the systems. BERT's precision is lower, making more false positive predictions, but this comes at the cost of a significantly higher recall, which improves by more than 4 points compared to the second-best system.
+
+4. **[5]**: Although BERT is not the top performer in the MEDDOCAN shared task (achieving a score only 0.3 F1-score points behind the second-best system), BERT's performance is still competitive and robust. The task is almost considered solved, suggesting that BERT's results are not significantly different from other systems, but rather due to minor variations or labelling inconsistencies.
+
+Considering these points, BERT does seem to perform better than the other algorithms tested. The robustness to reduced training data, the high recall, and the slight improvement over other systems (except in the F1-score) all support this conclusion. However, the slight improvement in recall over the second-best system and the close F1-score to the second-best system in the MEDDOCAN shared task may suggest that BERT's superiority might not be as pronounced in all tasks or scenarios. Nevertheless, based on the provided evidence, BERT appears to be the best performing algorithm in the majority of the scenarios analyzed.",no,1,0.0,qwen2.5:7b,1.0,,qwen2.5:7b,0.19999999998,,qwen2.5:7b,0.0,,qwen2.5:7b,0.7374254501692715,,qwen2.5:7b
+What are the clinical datasets used in the paper?,"The clinical datasets used in the paper are the MEDDOCAN 2019 shared task competition dataset and the NUBes corpus. These datasets were utilized in the experiments to evaluate the performance of the BERT-based model in detecting and classifying sensitive information in Spanish clinical free text. The NUBes corpus, a corpus of real medical reports in Spanish, was used in the first set of experiments, while the MEDDOCAN 2019 dataset was used in the second set of experiments.",MEDDOCAN NUBes-PHI,2,0.05,qwen2.5:7b,0.5,,qwen2.5:7b,0.36666666664833336,,qwen2.5:7b,1.0,,qwen2.5:7b,0.7213327620003139,,qwen2.5:7b
+how is model compactness measured?,"Based on the evidence provided, compactness in model measurement can be inferred from the size comparison of different models. Specifically, [1] compares the size of models: LangID-High is 15.4 MB, while the combined wFST high resource models are 197.5 MB. This comparison indicates that compactness can be measured by the size of the model, with smaller sizes indicating a more compact model.
+
+The evidence does not provide a direct definition of compactness or a comprehensive method for measuring it across different models. However, it provides a clear example of how one can measure compactness by comparing file sizes.",Using file size on disk,2,0.05769230769230769,qwen2.5:7b,1.0,,qwen2.5:7b,0.0,,qwen2.5:7b,0.0,,qwen2.5:7b,0.9370077467092971,,qwen2.5:7b
+what was the baseline?,"Based on the evidence provided, we cannot definitively determine what the baseline was for the research question, as no explicit baseline is mentioned or compared directly in the given evidence. The evidence focuses on comparing the performance of different models and variants, but it does not specify what the baseline performance was for any of the models or variations. Therefore, we cannot answer the research question ""What was the baseline?"" using only the information provided.
+
+[1] [2] [3] [4] [5]",system presented by deri2016grapheme,2,0.0,qwen2.5:7b,0.5,,qwen2.5:7b,0.9999999999,,qwen2.5:7b,0.0,,qwen2.5:7b,0.0,,qwen2.5:7b
+what evaluation metrics were used?,"Based on the evidence provided, the evaluation metrics used in the research seem to include:
+
+- WER (Word Error Rate)
+- WER 100
+- PER (Phone Error Rate)
+
+These metrics are mentioned in [3]. The evidence suggests that these metrics are used for multiple languages and are averaged, with each language given equal weighting.
+
+Additionally, the research mentions that error statistics incorporating phoneme similarity (like those proposed by [2]) are considered interesting but not widely reported for other g2p systems, so they are not used in this work.
+
+No other specific evaluation metrics are explicitly mentioned in the provided evidence.",Phoneme Error Rate (PER) Word Error Rate (WER) Word Error Rate 100 (WER 100),2,0.1981981981981982,qwen2.5:7b,0.7142857142857143,,qwen2.5:7b,0.8333333332916666,,qwen2.5:7b,1.0,,qwen2.5:7b,0.8798980166568867,,qwen2.5:7b
+what datasets did they use?,"Based on the evidence provided, the dataset used for training the neural g2p system was the multilingual pronunciation corpus collected by deri2016grapheme. This corpus consists of spelling–pronunciation pairs extracted from Wiktionary and is already partitioned into training and test sets. [1]",the Carnegie Mellon Pronouncing Dictionary BIBREF12 the multilingual pronunciation corpus collected by deri2016grapheme ranscriptions extracted from Wiktionary,2,0.37288135593220334,qwen2.5:7b,1.0,,qwen2.5:7b,0.9999999999,,qwen2.5:7b,0.6666666666666666,,qwen2.5:7b,0.7415717804963027,,qwen2.5:7b
+Who were the human evaluators used?,"The human evaluators used in the evaluation study were recruited from the institution where the research was conducted. Specifically, [1] states that ""20 evaluators were recruited from our institution and asked to each perform 20 annotations."" Therefore, the research participants were sourced from within the institution conducting the study.",20 evaluators were recruited from our institution and asked to each perform 20 annotations,2,0.4444444444444445,qwen2.5:7b,1.0,,qwen2.5:7b,0.9999999999,,qwen2.5:7b,1.0,,qwen2.5:7b,0.8756208063579889,,qwen2.5:7b

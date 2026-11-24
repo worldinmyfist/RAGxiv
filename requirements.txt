@@ -1,0 +1,26 @@
+# RAGxiv: QASPER retrieval, generation, and fully local RAGAS evaluation
+# Recommended: Python 3.11 or 3.12
+
+# Retrieval, indexing, chunking, hybrid search (RRF), and reranking
+llama-index-core>=0.12,<1
+llama-index-embeddings-huggingface>=0.5,<1
+llama-index-retrievers-bm25>=0.5,<1
+sentence-transformers>=3,<6
+rank-bm25>=0.2.2
+
+# Local Ollama HTTP client, RAGAS judge and structured output
+ragas>=0.4,<0.5
+openai>=1.0
+instructor>=1.0
+python-dotenv>=1.0
+requests>=2.31,<3
+
+# Analysis and Streamlit dashboard
+pandas>=2,<3
+numpy>=1.26
+streamlit>=1.40,<2
+altair>=5,<7
+
+# Notebook utilities
+ipykernel>=6,<8
+nbformat>=5
